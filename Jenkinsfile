@@ -27,6 +27,8 @@ pipeline {
                 script {
                     sh 'docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}'
                     sh 'docker build -t secret-santa -f Dockerfile .'
+                    sh 'docker tag secret-santa jerinvarghese1993/secret-santa
+                    sh 'docker push jerinvarghese1993/secret-santa
                     sh 'docker run -it -d -p 9000:8080 jerinvarghese1993/secret-santa'
                 }
             }
